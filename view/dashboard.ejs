@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/CSS/Dashboard.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h3>Recent Bookings</h3>
+    <% if (recentBookings && recentBookings.length > 0) { %>
+      <% recentBookings.forEach(function(booking) { %>
+        <div class="recent-booking">
+          Booking ID: <%= booking.id %> <br>
+          Room: <%= booking.roomName %>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No recent bookings.</p>
+    <% } %>
+  </div>
+
+  <div class="content">
+    <h1>Available Rooms</h1>
+    <% if (rooms && rooms.length > 0) { %>
+      <% rooms.forEach(function(room) { %>
+        <div class="card">
+          <h2><%= room.name %></h2>
+          <p>Capacity: <%= room.capacity %></p>
+          <p>Status: <%= room.status %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No rooms to display.</p>
+    <% } %>
+  </div>
+</body>
+</html>
